@@ -1,38 +1,84 @@
-.App {
+@import 'https://fonts.googleapis.com/css?family=Nova+Mono|Eczar';
+
+/* adjustments for bootstrap */
+/* .container {
+  max-width: 800px;
+} */
+
+/* .container-fluid {
+  color: dimgray;
+} */
+
+.countdown__timer {
+  font-family: 'Nova Mono', monospace;
+  font-weight: bold;
+  width: 100%;
+  border-radius: 25px;
+  border: 5px solid #17a2b8;
   text-align: center;
+  color: #17a2b8;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.countdown__timer--work {
+  color: #c1666b;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.countdown__timer--break {
+  color: #7dcfb6;
+}
+
+@media (min-width: 576px) {
+  .countdown__timer {
+    font-size: 8rem;
+    height: 200px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 575px) {
+  .countdown__timer {
+    font-size: 5rem;
   }
 }
+
+.countdown__about-link {
+  font-size: 1rem;
+  color: grey;
+}
+
+.countdown__about-link:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.countdown__reset-link {
+  font-size: 1rem;
+  color: grey;
+}
+
+.countdown__reset-link:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* .countdown__setup-btn {
+  width: 110px;
+}
+
+.countdown__setup-btn:disabled {
+  cursor: default;
+  text-decoration: none;
+} */
+
+/* adjustments for bootstrap */
+/* .modal-header {
+  border-bottom: 0 none;
+}
+
+.modal-footer {
+  border-top: 0 none;
+} */
+
+/* .container {
+  min-width: 300px;
+  max-width: 800px;
+} */

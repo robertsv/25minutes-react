@@ -1,24 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* TODO (RV): decrease container width */}
+      <Container>
+        <Row className='mt-4'>
+          <Col xs={12}>
+            <div
+              className='countdown__timer'
+              /* [ngClass]="{'countdown__timer--work': mode === 0, 'countdown__timer--break': mode === 1}"> */
+              /* {{ timeLeft | minutesSeconds }} */
+            >
+              15:57
+            </div>
+          </Col>
+        </Row>
+        <Row className='mt-2'>
+          <Col xs={12}>
+            <div className='float-start'>
+              <span className='countdown__about-link'>About</span>
+            </div>
+            <div className='float-end'>
+              <Button variant='outline-info'>Settings</Button>
+            </div>
+          </Col>
+        </Row>
+        <Row className='mt-2'>
+          <Col className='offset-sm-3 col-sm-6 d-grid'>
+            <Button variant='danger' size='lg'>
+              Start work
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
