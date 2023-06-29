@@ -5,9 +5,9 @@
   max-width: 800px;
 } */
 
-/* .container-fluid {
+.container-fluid {
   color: dimgray;
-} */
+}
 
 .countdown__timer {
   font-family: 'Nova Mono', monospace;
@@ -16,7 +16,7 @@
   border-radius: 25px;
   border: 5px solid #17a2b8;
   text-align: center;
-  color: #17a2b8;
+  /* color: #17a2b8; */
 }
 
 .countdown__timer--work {
@@ -82,3 +82,8 @@
   min-width: 300px;
   max-width: 800px;
 } */
+
+.link {
+  font-size: 1rem;
+  color: grey;
+}
