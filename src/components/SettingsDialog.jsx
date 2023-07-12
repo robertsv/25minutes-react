@@ -39,8 +39,8 @@ const SettingsDialog = () => {
 
   // Function to close the dialog and revert temporary values
   const closeDialog = () => {
-    setTmpWorkTime(getWorkTime());
-    setTmpBreakTime(getBreakTime());
+    setTmpWorkTime(secondToMinutes(getWorkTime()));
+    setTmpBreakTime(secondToMinutes(getBreakTime()));
     handleClose();
   };
 
@@ -63,7 +63,7 @@ const SettingsDialog = () => {
   };
 
   return (
-    <Modal size='md' show={getShow()} onHide={handleClose}>
+    <Modal size='md' show={getShow()} onHide={closeDialog}>
       <Modal.Header closeButton>
         <Modal.Title>Time settings</Modal.Title>
       </Modal.Header>
