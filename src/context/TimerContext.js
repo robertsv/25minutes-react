@@ -3,13 +3,14 @@ import { interval } from 'rxjs';
 import { TimerSatate } from '../common/TimerState';
 import NotificationService from '../common/NotificationService';
 import bellSound from '../assets/zapsplat_bell_small_hand_ring_short_012_39329.mp3';
+import StorageService from '../common/StorageService';
 
 const TimerContext = createContext();
 
 export const TimerProvider = ({ children }) => {
-  const [workTime, setWorkTime] = useState(45);
-  const [breakTime, setBreakTime] = useState(15);
-  const [time, setTime] = useState(workTime * 60);
+  const [workTime, setWorkTime] = useState(StorageService.getWorkTime());
+  const [breakTime, setBreakTime] = useState(StorageService.getBreakTime());
+  const [time, setTime] = useState(workTime);
   const [subscription, setSubscription] = useState();
   const [timerState, setTimerState] = useState(TimerSatate.READY);
   const [show, setShow] = useState(false);

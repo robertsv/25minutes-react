@@ -3,6 +3,10 @@ npm install react-bootstrap
 npm install bootstrap
 npm install rxjs
 
+TODO:
+
+- clean SettingsDialog.jsx
+
 Notes:
 
 - Understanding Functional Components vs. Class Components in React

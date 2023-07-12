@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import TimerContext from '../context/TimerContext';
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import { minutesToSeconds, secondToMinutes } from '../common/Utils';
 import { TimerSatate } from '../common/TimerState';
+import StorageService from '../common/StorageService';
 
 const SettingsDialog = () => {
   const {
@@ -17,8 +18,12 @@ const SettingsDialog = () => {
     reset,
   } = useContext(TimerContext);
 
-  const [tmpWorkTime, setTmpWorkTime] = useState(getWorkTime);
-  const [tmpBreakTime, setTmpBreakTime] = useState(getBreakTime);
+  const [tmpWorkTime, setTmpWorkTime] = useState(
+    secondToMinutes(getWorkTime())
+  );
+  const [tmpBreakTime, setTmpBreakTime] = useState(
+    secondToMinutes(getBreakTime())
+  );
 
   const handleChange = (event) => {
     const newValue = event.target.value;
@@ -37,6 +42,8 @@ const SettingsDialog = () => {
   };
 
   const handleSave = () => {
+    StorageService.setWorkTime(minutesToSeconds(tmpWorkTime));
+    StorageService.setBreakTime(minutesToSeconds(tmpBreakTime));
     setWorkTime(minutesToSeconds(tmpWorkTime));
     setBreakTime(minutesToSeconds(tmpBreakTime));
     setTime(minutesToSeconds(tmpWorkTime));

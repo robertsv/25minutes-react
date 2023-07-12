@@ -15,10 +15,6 @@ class NotificationService {
           }
         });
       };
-
-      // Attach this method to a user-generated event, like a button click
-      //   const button = document.getElementById('requestPermissionButton');
-      //   button.addEventListener('click', handlePermissionRequest);
     }
   }
 
@@ -33,15 +29,8 @@ class NotificationService {
   static _createNotification(title, body) {
     const options = {
       body,
-      // icon: 'path/to/notification-icon.png',
     };
-
     const notification = new Notification(title, options);
-
-    notification.onclick = () => {
-      console.log('Notification clicked');
-      // Handle notification click event
-    };
   }
 }
 
