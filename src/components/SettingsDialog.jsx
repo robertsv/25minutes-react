@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import TimerContext from '../context/TimerContext';
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import { minutesToSeconds, secondToMinutes } from '../common/Utils';
-import { TimerSatate } from '../common/TimerState';
 import StorageService from '../common/StorageService';
 
 const SettingsDialog = () => {
+  // Accessing necessary functions and state from the TimerContext
   const {
     handleClose,
     getShow,
@@ -14,10 +14,10 @@ const SettingsDialog = () => {
     getWorkTime,
     getBreakTime,
     setTime,
-    setTimerState,
     reset,
   } = useContext(TimerContext);
 
+  // State for temporary work time and break time values
   const [tmpWorkTime, setTmpWorkTime] = useState(
     secondToMinutes(getWorkTime())
   );
@@ -25,29 +25,40 @@ const SettingsDialog = () => {
     secondToMinutes(getBreakTime())
   );
 
-  const handleChange = (event) => {
+  // Event handler for changes in work time input
+  const handleWorkTimeChange = (event) => {
     const newValue = event.target.value;
     setTmpWorkTime(newValue);
   };
 
-  const handleChange2 = (event) => {
+  // Event handler for changes in break time input
+  const handleBreakTimeChange = (event) => {
     const newValue = event.target.value;
     setTmpBreakTime(newValue);
   };
 
-  const handleClose2 = () => {
+  // Function to close the dialog and revert temporary values
+  const closeDialog = () => {
     setTmpWorkTime(getWorkTime());
     setTmpBreakTime(getBreakTime());
     handleClose();
   };
 
-  const handleSave = () => {
+  // Function to save changes to work time and break time
+  const saveChanges = () => {
+    // Saving changes to storage service
     StorageService.setWorkTime(minutesToSeconds(tmpWorkTime));
     StorageService.setBreakTime(minutesToSeconds(tmpBreakTime));
+
+    // Updating state with new values
     setWorkTime(minutesToSeconds(tmpWorkTime));
     setBreakTime(minutesToSeconds(tmpBreakTime));
     setTime(minutesToSeconds(tmpWorkTime));
+
+    // Resetting the timer
     reset();
+
+    // Closing the dialog
     handleClose();
   };
 
@@ -67,7 +78,7 @@ const SettingsDialog = () => {
                 type='number'
                 autoFocus
                 value={tmpWorkTime}
-                onChange={handleChange}
+                onChange={handleWorkTimeChange}
               />
             </Col>
           </Form.Group>
@@ -80,17 +91,17 @@ const SettingsDialog = () => {
                 type='number'
                 autoFocus
                 value={tmpBreakTime}
-                onChange={handleChange2}
+                onChange={handleBreakTimeChange}
               />
             </Col>
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose2}>
+        <Button variant='secondary' onClick={closeDialog}>
           Close
         </Button>
-        <Button variant='primary' onClick={handleSave}>
+        <Button variant='primary' onClick={saveChanges}>
           Save Changes
         </Button>
       </Modal.Footer>
