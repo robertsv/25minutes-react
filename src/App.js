@@ -1,21 +1,18 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Timer from './components/Timer';
 import StartStopButton from './components/StartStopButton';
 import TimerContext, { TimerProvider } from './context/TimerContext';
 import SettingsDialog from './components/SettingsDialog';
-import { useContext, useEffect } from 'react';
-import NotificationService from './common/NotificationService';
+import { useContext } from 'react';
 
 function App() {
   const { handleShow } = useContext(TimerContext);
 
   return (
     <>
-      {/* <TimerProvider> */}
-      {/* TODO (RV): decrease container width */}
       <Container>
         <Row className='mt-4'>
           <Col xs={12}>
@@ -44,7 +41,7 @@ function App() {
       <Container fluid>
         <hr></hr>
         <Row className='justify-content-md-center'>
-          <Col lg='6'>
+          <Col lg={6}>
             <h4>What is it?</h4>
             <p>
               25minutes is a simple yet very powerful time tracking tool. It is
@@ -54,6 +51,7 @@ function App() {
                 href='https://en.wikipedia.org/wiki/Pomodoro_Technique'
                 target='_blank'
                 class='link'
+                rel='noreferrer'
               >
                 The Pomodoro Technique
               </a>
@@ -64,7 +62,7 @@ function App() {
           </Col>
         </Row>
         <Row className='justify-content-md-center'>
-          <Col lg='6'>
+          <Col lg={6}>
             <h4>How to use it?</h4>
             <p>
               By default, work time is 25 minutes and the break is 5 minutes. In
@@ -77,7 +75,6 @@ function App() {
       </Container>
 
       <SettingsDialog></SettingsDialog>
-      {/* </TimerProvider> */}
     </>
   );
 }
@@ -91,5 +88,3 @@ function AppWrapper() {
 }
 
 export default AppWrapper;
-
-// export default App;

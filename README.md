@@ -6,9 +6,10 @@ npm install rxjs
 TODO:
 
 - DONE clean SettingsDialog.jsx
-- celan Timer.jsx
-- clean/refactor App.js
+- DONE celan Timer.jsx
+- DONE clean/refactor App.js
 - add validation to setting dialog input so that only numbers can be added
+- add logo see App.js
 
 Notes:
 

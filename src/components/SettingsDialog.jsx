@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import TimerContext from '../context/TimerContext';
 import { Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import { minutesToSeconds, secondToMinutes } from '../common/Utils';
@@ -70,10 +70,10 @@ const SettingsDialog = () => {
       <Modal.Body>
         <Form>
           <Form.Group as={Row} className='mb-3' controlId='workTime'>
-            <Col sm='6'>
+            <Col sm={6}>
               <Form.Label>Work time (minutes)</Form.Label>
             </Col>
-            <Col sm='6'>
+            <Col sm={6}>
               <Form.Control
                 type='number'
                 autoFocus
@@ -83,10 +83,10 @@ const SettingsDialog = () => {
             </Col>
           </Form.Group>
           <Form.Group as={Row} className='mb-3' controlId='workTime'>
-            <Col sm='6'>
+            <Col sm={6}>
               <Form.Label>Break time (minutes)</Form.Label>
             </Col>
-            <Col sm='6'>
+            <Col sm={6}>
               <Form.Control
                 type='number'
                 autoFocus
