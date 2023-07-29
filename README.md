@@ -8,8 +8,11 @@ TODO:
 - DONE clean SettingsDialog.jsx
 - DONE celan Timer.jsx
 - DONE clean/refactor App.js
+- DONE logo see App.js
+- add count down to tab name
+- fix clock width
+- add scrolling to info section
 - add validation to setting dialog input so that only numbers can be added
-- add logo see App.js
 
 Notes:
 

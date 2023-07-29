@@ -50,7 +50,6 @@ function App() {
                 className='link'
                 href='https://en.wikipedia.org/wiki/Pomodoro_Technique'
                 target='_blank'
-                class='link'
                 rel='noreferrer'
               >
                 The Pomodoro Technique
