@@ -27,14 +27,18 @@ const SettingsDialog = () => {
 
   // Event handler for changes in work time input
   const handleWorkTimeChange = (event) => {
-    const newValue = event.target.value;
-    setTmpWorkTime(newValue);
+    alert(event.target.value);
+    if (/^\d*$/.test(event.target.value)) {
+      alert('Value is numeric');
+      setTmpWorkTime(event.target.value);
+    }
   };
 
   // Event handler for changes in break time input
   const handleBreakTimeChange = (event) => {
-    const newValue = event.target.value;
-    setTmpBreakTime(newValue);
+    if (/^\d*$/.test(event.target.value)) {
+      setTmpBreakTime(event.target.value);
+    }
   };
 
   // Function to close the dialog and revert temporary values
@@ -62,6 +66,33 @@ const SettingsDialog = () => {
     handleClose();
   };
 
+  const handleKeyPress = (event) => {
+    // Allow only numeric keys and certain control keys
+    const allowedKeys = [
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'Backspace',
+      'Delete',
+      'Tab',
+    ];
+    console.log(event.key);
+    if (!allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <Modal size='md' show={getShow()} onHide={closeDialog}>
       <Modal.Header closeButton>
@@ -79,6 +110,7 @@ const SettingsDialog = () => {
                 autoFocus
                 value={tmpWorkTime}
                 onChange={handleWorkTimeChange}
+                onKeyDown={handleKeyPress}
               />
             </Col>
           </Form.Group>
@@ -89,9 +121,9 @@ const SettingsDialog = () => {
             <Col sm={6}>
               <Form.Control
                 type='number'
-                autoFocus
                 value={tmpBreakTime}
                 onChange={handleBreakTimeChange}
+                onKeyDown={handleKeyPress}
               />
             </Col>
           </Form.Group>

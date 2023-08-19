@@ -12,7 +12,7 @@ TODO:
 - add count down to tab name
 - fix clock width
 - add scrolling to info section
-- add validation to setting dialog input so that only numbers can be added
+- TODO add validation to setting dialog input so that only numbers can be added
 
 Notes:
 
