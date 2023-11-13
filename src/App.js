@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Timer from './components/Timer';
 import StartStopButton from './components/StartStopButton';
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <Container>
+      <Container className='container-lg'>
         <Row className='mt-4'>
           <Col xs={12}>
             <Timer></Timer>

@@ -1,9 +1,12 @@
 @import 'https://fonts.googleapis.com/css?family=Nova+Mono|Eczar';
 
 /* adjustments for bootstrap */
-/* .container {
-  max-width: 800px;
-} */
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 800px;
+  }
+}
 
 .container-fluid {
   color: dimgray;

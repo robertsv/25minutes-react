@@ -27,9 +27,7 @@ const SettingsDialog = () => {
 
   // Event handler for changes in work time input
   const handleWorkTimeChange = (event) => {
-    alert(event.target.value);
     if (/^\d*$/.test(event.target.value)) {
-      alert('Value is numeric');
       setTmpWorkTime(event.target.value);
     }
   };

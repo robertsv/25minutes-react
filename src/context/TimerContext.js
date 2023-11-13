@@ -4,6 +4,7 @@ import { TimerSatate } from '../common/TimerState';
 import NotificationService from '../common/NotificationService';
 import bellSound from '../assets/zapsplat_bell_small_hand_ring_short_012_39329.mp3';
 import StorageService from '../common/StorageService';
+import { formatTime } from '../common/Utils';
 
 const TimerContext = createContext();
 
@@ -38,7 +39,11 @@ export const TimerProvider = ({ children }) => {
   };
 
   const start = () => {
-    if (timerState === TimerSatate.READY) {
+    document.title = formatTime(timeRef.current);
+    if (
+      timerState === TimerSatate.READY ||
+      timerState === TimerSatate.WORK_PAUSED
+    ) {
       setTimerState(TimerSatate.WORK_RUNNING);
     } else {
       setTimerState(TimerSatate.BREAK_RUNNING);
@@ -47,6 +52,7 @@ export const TimerProvider = ({ children }) => {
       interval(1000).subscribe(() => {
         if (timeRef.current !== 0) {
           setTime((prevTime) => prevTime - 1);
+          document.title = formatTime(timeRef.current - 1);
         } else {
           const audio = new Audio(bellSound);
           audio.play();
@@ -71,6 +77,7 @@ export const TimerProvider = ({ children }) => {
   };
 
   const stop = () => {
+    document.title = '25minutes';
     if (timerState === TimerSatate.WORK_RUNNING) {
       setTimerState(TimerSatate.WORK_PAUSED);
     } else {

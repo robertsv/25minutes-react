@@ -9,7 +9,7 @@ TODO:
 - DONE celan Timer.jsx
 - DONE clean/refactor App.js
 - DONE logo see App.js
-- add count down to tab name
+- DONE add count down to tab name
 - fix clock width
 - add scrolling to info section
 - TODO add validation to setting dialog input so that only numbers can be added
